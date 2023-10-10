@@ -1,0 +1,23 @@
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}
+
+.parent {
+    background-color: blueviolet;
+}
+
+.child {
+    background-color: aqua;
+}
+
+.child-success {
+    background-color: brown;
+}
+
+.array {
+    background-color: yellowgreen;
+}

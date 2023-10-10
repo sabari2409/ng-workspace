@@ -1,5 +1,40 @@
-<form [formGroup]="loginForm">
-    <input type="text" formControlName="userName" placeholder="username" />
-    <input type="text" formControlName="password" placeholder="password" />
-    <input type="button" (click)="login()" value="login">
-</form>
+<ng-container *ngIf="loginForm">
+    <form [formGroup]="loginForm">
+        <input type="text" formControlName="userName" placeholder="username" />
+        <span class="error" *ngIf="loginForm.get('userName')?.errors && loginForm.get('userName')?.hasError('required')">Invalid username</span>
+        <input type="text" formControlName="password" placeholder="password" />
+        <ng-container *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.hasError('minlength')">
+            <div class="error">Minimum 2 characters required</div>
+        </ng-container>
+        <ng-container *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.hasError('maxlength')">
+            <div class="error">Maximum characters exceeded</div>
+        </ng-container>
+        <input type="button" [disabled]="!loginForm.valid" (click)="login()" value="login">
+    </form>
+</ng-container>
+
+
+<div class="parent">
+    <div>Parent container</div>
+    <div class="child">
+        <ng-container *ngIf="isLoaded;else falseMsg">
+            loaded success
+            <ng-container *ngFor="let arr1 of data;let pos = index">
+                <div class="array">{{arr1}} - {{pos}}</div>
+            </ng-container>
+        </ng-container>
+        
+    </div>
+    <div class="child-success" *ngIf="isLoaded">
+        loaded child success
+    </div>
+</div>
+
+
+<ng-template #falseMsg>
+    <div>loaded false</div>
+</ng-template>
+
+<div [ngClass]="{'success': isLoaded, 'error': !isLoaded}">loaded form</div>
+<div [class.success]="isLoaded" [class.error]="!isLoaded">Loading using class dot</div>
+
