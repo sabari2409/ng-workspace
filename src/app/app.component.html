@@ -1,18 +1,9 @@
-<ng-container *ngIf="loginForm">
-    <form [formGroup]="loginForm">
-        <input type="text" formControlName="userName" placeholder="username" />
-        <span class="error" *ngIf="loginForm.get('userName')?.errors && loginForm.get('userName')?.hasError('required')">Invalid username</span>
-        <input type="text" formControlName="password" placeholder="password" />
-        <ng-container *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.hasError('minlength')">
-            <div class="error">Minimum 2 characters required</div>
-        </ng-container>
-        <ng-container *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.hasError('maxlength')">
-            <div class="error">Maximum characters exceeded</div>
-        </ng-container>
-        <input type="button" [disabled]="!loginForm.valid" (click)="login()" value="login">
-    </form>
-</ng-container>
+<app-login></app-login>
 
+<ul>
+    <li routerLink="/login">Login</li>
+    <li routerLink="/register">Register User</li>
+</ul>
 
 <div class="parent">
     <div>Parent container</div>
@@ -37,4 +28,4 @@
 
 <div [ngClass]="{'success': isLoaded, 'error': !isLoaded}">loaded form</div>
 <div [class.success]="isLoaded" [class.error]="!isLoaded">Loading using class dot</div>
-
+<router-outlet></router-outlet>

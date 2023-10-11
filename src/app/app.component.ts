@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   }
 
   title = "my firs tapp in angular";
-  loginForm!: FormGroup;
+  
   isLoaded = true;
   data = [10, 20, 30, 40]; // global variable
   // First lifcyle hook
@@ -32,29 +32,10 @@ export class AppComponent implements OnInit {
       console.log('value is defined');
     }
     console.log('ng onit called', this.data);
-    this.loginForm = this.formBuilder.group({
-      userName: ['angular', [Validators.required]],
-      password: new FormControl('', [Validators.minLength(3), Validators.maxLength(5)])
-    });
-    console.log('form initalized -->', this.loginForm);
-    this.loginForm.valueChanges.subscribe((d) => {
-      console.log('form subscription data -->', d);
-    });
-    
-    this.loginForm.statusChanges.subscribe((e) => {
-      console.log('status changed -->', e);
-      if (e === 'VALID') {
-        console.log('valid form');
-      } else {
-        console.log('invalid form');
-      }
-    })
+
   }
 
-  login() {
-    console.log(this.loginForm.value);
-  }
-
+ 
   // function sample() {
 
   // }
