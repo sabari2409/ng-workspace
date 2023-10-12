@@ -1,4 +1,4 @@
-<app-login></app-login>
+<!-- <app-login></app-login>
 
 <ul>
     <li routerLink="/login">Login</li>
@@ -28,4 +28,15 @@
 
 <div [ngClass]="{'success': isLoaded, 'error': !isLoaded}">loaded form</div>
 <div [class.success]="isLoaded" [class.error]="!isLoaded">Loading using class dot</div>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+<div class="container">
+    <div class="header">
+        <app-header></app-header>
+    </div>
+    <div class="sidebar-filters">
+
+    </div>
+    <div class="section">
+        <router-outlet></router-outlet>
+    </div>
+</div>

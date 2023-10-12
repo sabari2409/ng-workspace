@@ -1,0 +1,14 @@
+* {
+    list-style-type: none;
+}
+
+ul { 
+    display: flex;
+}
+
+ul > li {
+    padding: 5px;
+    color: blue;
+    cursor: pointer;
+    font-size: 18px;
+}

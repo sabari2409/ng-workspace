@@ -11,6 +11,16 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegistrationComponent
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then((m) => {
+      console.log('Module present', m);
+      return m.CartModule;
+    }).catch((error) => {
+      console.log('error');
+      return Promise<null>;
+    })
   }
 ];
 

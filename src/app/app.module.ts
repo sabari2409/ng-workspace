@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { HeaderModule } from './header/header.module';
+import { CartModule } from './cart/cart.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { RegistrationComponent } from './registration/registration.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HeaderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
